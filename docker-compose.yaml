@@ -1,0 +1,31 @@
+version: '3.8'
+
+services:
+  web:
+    image: megaden/root_number:v4
+    build: .
+    restart: always
+    command: python /code/manage.py runserver 0:8000
+    ports:
+      - "8000:8000"
+
+  # redis:
+  #   image: redis:latest
+  #   ports:
+  #    - "6379:6379"
+
+  # celery:
+  #   build: .
+  #   command: celery -A api worker -l info -E
+  #   depends_on:
+  #     - redis
+
+  # flower:
+  #   build: ./
+  #   command: flower -A api
+  #   volumes:
+  #     - ./examples:/data
+  #   ports:
+  #     - "5555:5555"
+  #   depends_on:
+      # - redis

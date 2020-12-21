@@ -10,4 +10,4 @@ COPY . /code
 
 WORKDIR /code
 
-CMD gunicorn root_number.wsgi:application --bind 0.0.0.0:8000
+CMD python /code/manage.py runserver 0:8000
